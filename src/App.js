@@ -1,23 +1,19 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import '../node_modules/bootstrap/dist/js/bootstrap.js'
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import NavBar from "./Components/NavBar"
+import ItemListContainer from "./Components/ItemListContainer"
 
 function App() {
   return (
-    <div className="App">
+    <div className='pages__grid'>
+      <NavBar />
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
+      <main>
+        <ItemListContainer greeting={"Oops, parece que no hay artículos"}/>
+      </main>
     </div>
   );
 }
