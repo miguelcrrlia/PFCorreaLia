@@ -54,6 +54,7 @@ nav {
   }
   .navegador__links ul li a {
     height: 100%;
+    width: 1.5rem;
   }
   .navegador__links ul li a svg {
     height: auto;
@@ -62,12 +63,6 @@ nav {
   }
   .navegador__links ul li a svg:hover {
     fill: rgb(255, 242, 18);
-  }
-  .navegador__links ul li a {
-    width: 1.5rem;
-  }
-  .navegador__links ul li a img:hover {
-    fill: rgb(12, 14, 110);
   }
   ul li {
     list-style: none;

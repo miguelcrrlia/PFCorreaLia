@@ -12,7 +12,7 @@ function App() {
       <header className="App-header">
       </header>
       <main>
-        <ItemListContainer greeting={"Oops, parece que no hay artículos"}/>
+        <ItemListContainer greeting={"¡Oops, lo sentimos, no hemos encontrado nada!"}/>
       </main>
     </div>
   );
