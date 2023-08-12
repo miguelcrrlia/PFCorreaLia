@@ -1,0 +1,15 @@
+/*Pone hacia la derecha el form para buscar en la tienda*/
+.tienda__buscar--flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: flex-end;
+    /* position: sticky;
+    top: 100.3rem;
+    z-index: 4; */
+    grid-area: centrado;
+  }
+  .tienda__buscar--flex div {
+    position: relative;
+  }

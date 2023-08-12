@@ -1,6 +1,7 @@
 import styles from "./styles.module.css"
 import Logo from "../Logo"
 import CartWidget from "../CartWidget"
+import FormSearchFilter from "../FormSearchFilter"
 
 const NavBar = () => {
     return (
@@ -132,6 +133,7 @@ const NavBar = () => {
                 </li>
             </ul>
         </div>
+        <div className={styles["centrado"]}>
         <div className={styles["navegador__menu"]}>
                 <div className={styles["navegador__lista--row"]}>
                     {/* Lista para navegar dentro del sitio */}
@@ -150,6 +152,8 @@ const NavBar = () => {
                         </li>
                     </ul>
                 </div>
+        </div>
+        <FormSearchFilter />
         </div>
     </nav>
     )

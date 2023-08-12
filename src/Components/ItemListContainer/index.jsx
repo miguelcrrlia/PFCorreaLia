@@ -1,4 +1,4 @@
-import styles from "./styles.modules.css"
+import styles from "./styles.module.css"
 const ItemListContainer = ({greeting}) => {
     return (
     <p className= {styles["p"]}>
