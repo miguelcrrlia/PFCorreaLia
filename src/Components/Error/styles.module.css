@@ -1,0 +1,25 @@
+/*Clases para la página error 404*/
+.navegador-error__lista {
+    padding-left: 2%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-weight: 700;
+    font-size: 2em;
+  }
+  
+  /*Imágen para aviso de página error 404*/
+  .error__image {
+    margin-top: 1.5%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .error__image svg {
+    margin-bottom: 1.5%;
+    height: 50vh;
+  }

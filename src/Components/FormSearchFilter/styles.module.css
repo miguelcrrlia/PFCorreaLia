@@ -5,11 +5,32 @@
     flex-wrap: nowrap;
     justify-content: flex-end;
     align-items: flex-end;
-    /* position: sticky;
-    top: 100.3rem;
-    z-index: 4; */
     grid-area: centrado;
   }
   .tienda__buscar--flex div {
     position: relative;
+  }
+  .label_filter {
+    margin: 0 5px; 
+  }
+  .buscar__input {
+    margin: 0 5px;
+    padding-right: 20px;
+  }
+  .buscar__button {
+    position: absolute;
+  width: 1rem;
+  left: 181.2px;
+  top: 3.79px;
+  border-style: none;
+  background-image: url(../../../public/srch.svg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  color: transparent;
+  }
+  .buscar__button:hover {
+    background-image: url(../../../public/srchy.svg);
+    color: transparent;
   }

@@ -11,14 +11,14 @@ const FormSearchFilter = () => {
                     <option value="z-a">Z - A</option>
                 </select>
             </label>
-            <label id="label_filter" className="label_filter" htmlFor="filterCategory">
+            <label id="label_filter" className={styles["label_filter"]} htmlFor="filterCategory">
                 <select id="filterCategory">
                     <option value="">Seleccione una categoría...</option>
                 </select>
             </label>
             <div>
-                <input id="input_search" className="buscar__input" name="buscar" type="text" placeholder="Buscar" />
-                <input id="input_button_search" className="buscar__button" type="button" title="buscar" value="buscar" />
+                <input id="input_search" className={styles["buscar__input"]} name="buscar" type="text" placeholder="Buscar" />
+                <input id="input_button_search" className={styles["buscar__button"]} type="button" title="buscar" value="buscar" />
             </div>
         </form>
     )

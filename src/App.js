@@ -1,21 +1,15 @@
 // import logo from './logo.svg';
-import './App.css';
-import '../node_modules/bootstrap/dist/js/bootstrap.js'
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
-import NavBar from "./Components/NavBar"
-import ItemListContainer from "./Components/ItemListContainer"
-
+import Router from './router/router'
 function App() {
-  return (
-    <div className='pages__grid'>
-      <NavBar />
-      <header className="App-header">
-      </header>
-      <main>
-        <ItemListContainer greeting={"¡Oops, lo sentimos, no hemos encontrado nada!"}/>
-      </main>
-    </div>
-  );
+  return <Router />
+    // <div className='pages__grid'>
+    //   <NavBar />
+    //   <header className="App-header">
+    //   </header>
+    //   <main>
+    //     <ItemListContainer greeting={"¡Oops, lo sentimos, no hemos encontrado nada!"}/>
+    //   </main>
+    // </div>
 }
 
 export default App;
