@@ -1,0 +1,50 @@
+input[type="number"] {
+    -moz-appearance: textfield /* Firefox */
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+.boxInput {
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+}
+input {
+    width: 40%;
+}
+  .input__button {
+    width: 30%;
+    margin: 0 5px;
+    border: 0;
+    padding: 1px 5px;
+    background-color: rgb(62, 64, 149);
+    color: rgb(247, 247, 247);
+  }
+  .input__button:hover {
+    color: rgb(255, 242, 18);
+  }
+  .input__button:active {
+    animation-name: achicar;
+    animation-duration: 0.2s;
+    animation-timing-function: linear;
+  }
+  @keyframes achicar {
+    0% {
+      transform: scale(1);
+    }
+    25% {
+      transform: scale(0.95);
+    }
+    50% {
+      transform: scale(0.9);
+    }
+    75% {
+      transform: scale(0.85);
+    }
+    100% {
+      transform: scale(0.8);
+    }
+  }

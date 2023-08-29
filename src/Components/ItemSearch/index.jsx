@@ -1,8 +1,8 @@
-const ItemSearch = (articles, id) => {
-    const articleSearched = articles.find(art => art.id === id)
+const ItemSearch = (id) => {
+    let aux = JSON.parse(localStorage.getItem("articles"))
+    console.log(aux)
+    const articleSearched = aux.find(art => Number(art.id) === Number(id))
     console.log(articleSearched)
-    return (
-        <div></div>
-    )
+    return articleSearched
 }
 export default ItemSearch

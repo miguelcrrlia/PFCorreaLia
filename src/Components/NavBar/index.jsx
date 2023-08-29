@@ -1,8 +1,8 @@
-import styles from "./styles.module.css"
-import Logo from "../Logo"
-import CartWidget from "../CartWidget"
-import FormSearchFilter from "../FormSearchFilter"
-import { Link } from "react-router-dom"
+import styles from './styles.module.css'
+import Logo from '../Logo'
+import CartWidget from '../CartWidget'
+import FormSearchFilter from '../FormSearchFilter'
+import { Link } from 'react-router-dom'
 
 const NavBar = () => {
     return (

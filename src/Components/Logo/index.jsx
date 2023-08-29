@@ -1,6 +1,6 @@
 //Creo este componente por comodidad para no tener un svg muy largo
 //en el componente que lo vaya a usar
-import * as React from "react"
+import * as React from 'react'
 const Logo = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"

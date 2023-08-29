@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react'
 import ItemFilter from '../ItemFilter'
-import { useParams } from "react-router-dom"
+import { useParams } from 'react-router-dom'
 
 
-const ItemsGet = (id) => {
+const ItemsGet = () => {
  const [articles, setArticles] = useState([])
  const [articlesFilter, setArticlesFilter] = useState([])
  const [error, setError] = useState(false)
-//  const { id } = useParams()
+let aux
+ const { id } = useParams()
  console.log("entra en el ItemsGet")
  useEffect(() => {
      fetch('https://fakestoreapi.com/products')
@@ -15,6 +16,8 @@ const ItemsGet = (id) => {
      .then(data => {
          setArticles(data)
          setArticlesFilter(data)
+        aux = JSON.stringify(data)
+         localStorage.setItem("articles", aux)
         })
         .catch((e) => {
             console.log(e.message)
@@ -29,8 +32,6 @@ const ItemsGet = (id) => {
     if (error) {
         return error
     }
-    console.log(articles)
 return articlesFilter
 }
-
 export default ItemsGet

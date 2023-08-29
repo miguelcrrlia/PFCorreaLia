@@ -1,16 +1,12 @@
-import { useEffect } from "react"
-import ItemsGet from "../ItemsGet"
-import LoadingMessage from "../LoadingMessage"
-import Error from "../Error"
-import { useParams } from "react-router-dom"
-import styles from "./styles.module.css"
-import { Link } from "react-router-dom"
+import ItemsGet from '../ItemsGet'
+import LoadingMessage from '../LoadingMessage'
+import Error from '../Error'
+import { useParams } from 'react-router-dom'
+import styles from './styles.module.css'
+import { Link } from 'react-router-dom'
 const ItemListContainer = () => {
     const { id } = useParams()
-    // console.log(id)
     const info = ItemsGet(id)
-    // console.log(info) 
-    // console.log(info[0])
     if (info === true) {
         return <Error />
     }
