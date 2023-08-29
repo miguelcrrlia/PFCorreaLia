@@ -8,11 +8,16 @@ p {
     text-align: left;
   }
 .list {
+  color: rgb(62, 64, 149);
   margin: 10px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
+}
+.list h3 {
+  width: 100%;
+  justify-content: flex;
 }
 img {
   width: 70%;
