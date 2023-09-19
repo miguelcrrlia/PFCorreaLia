@@ -1,17 +1,19 @@
 import { Link } from 'react-router-dom'
 import styles from './styles.module.css'
-import ItemsGet from '../ItemsGet'
+// import ItemsGet from '../ItemsGet'
 import LoadingMessage from '../LoadingMessage'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import { ArticlesContext } from '../../context/ArticlesContext'
+
 
 const FormSearchFilter = () => {
-    const articles = ItemsGet()
+    const {articles, setArticles} = useContext(ArticlesContext)
     const [categories, setCategories] = useState([])
     {articles.length > 0 ? (
         articles.map((item) => {
-            let cat = categories.some((e) => item.category === e )
+            let cat = categories.some((e) => item.categoryId === e )
             if (!cat) {
-                setCategories([...categories, item.category])
+                setCategories([...categories, item.categoryId])
             }
         })
     ) : (
