@@ -1,0 +1,49 @@
+.figure__button {
+    width: 8rem;
+    margin: 4% 0;
+    border-style: none;
+    padding-left: 0.2rem;
+    padding-right: 1.563rem;
+    background-image: url(../../../public/crtdd.svg);
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    color: rgb(247, 247, 247);
+    font-size: 0.8em;
+  }
+  .figure__button:hover {
+    background-image: url(../../../public/crtddy.svg);
+    color: rgb(255, 242, 18);
+  }
+  .figure__button:active {
+    animation-name: achicar;
+    animation-duration: 0.2s;
+    animation-timing-function: linear;
+  }
+  .figure__button__empty {
+    width: 8rem;
+    margin: 4% 0;
+    border-style: none;
+    padding-left: 0;
+    padding-right: 0;
+    background-color: rgb(62, 64, 149);
+    color: rgb(255, 242, 18);
+    font-size: 0.8em;
+  }
+  @keyframes achicar {
+    0% {
+      transform: scale(1);
+    }
+    25% {
+      transform: scale(0.95);
+    }
+    50% {
+      transform: scale(0.9);
+    }
+    75% {
+      transform: scale(0.85);
+    }
+    100% {
+      transform: scale(0.8);
+    }
+  }
