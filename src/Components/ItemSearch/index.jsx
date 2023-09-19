@@ -1,7 +1,10 @@
-const ItemSearch = (id) => {
-    let aux = JSON.parse(localStorage.getItem("articles"))
-    console.log(aux)
-    const articleSearched = aux.find(art => Number(art.id) === Number(id))
+// import { ArticlesContext } from '../../context/ArticlesContext'
+// import { useContext } from 'react'
+
+const ItemSearch = (id, articles) => {
+    // const {articles, setArticles} = useContext(ArticlesContext)
+    console.log(articles + id + " " + "datos")
+    const articleSearched = articles.find(art => art.id === id)
     console.log(articleSearched)
     return articleSearched
 }
