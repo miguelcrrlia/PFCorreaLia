@@ -3,9 +3,9 @@
 
 const ItemSearch = (id, articles) => {
     // const {articles, setArticles} = useContext(ArticlesContext)
-    console.log(articles + id + " " + "datos")
+    // console.log(articles + id + " " + "datos")
     const articleSearched = articles.find(art => art.id === id)
-    console.log(articleSearched)
+    // console.log(articleSearched)
     return articleSearched
 }
 export default ItemSearch

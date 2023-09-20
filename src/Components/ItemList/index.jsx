@@ -6,10 +6,10 @@ import Item from '../Item'
 
 const ItemList = ({ articlesFilter }) =>{
     console.log(articlesFilter)
-return <div  className={styles["list"]}>
+return <div key="ItemList" className={styles["list"]}>
             {articlesFilter.length > 0 ? (
                     articlesFilter.map((item, index) => 
-                                <Item item={item} index={index} />
+                                <Item key={index} item={item} index={index+1} />
                     )
                 ) : (
                 <LoadingMessage />

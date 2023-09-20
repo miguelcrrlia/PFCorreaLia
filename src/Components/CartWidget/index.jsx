@@ -1,4 +1,8 @@
+import { useContext } from 'react'
+import { ArticlesContext } from '../../context/ArticlesContext'
+
 const CartWidget = () => {
+    const {totalCart} = useContext(ArticlesContext)
     return (
         <svg aria-labelledby="title-carrito-nav" width="19.7527mm" height="19.9558mm" version="1.1" style={{
             shapeRendering: 'geometricPrecision',
@@ -17,8 +21,13 @@ const CartWidget = () => {
                 -50.46 -50.4,-75.67 -100.85,-75.67l-151.31 0c-50.46,0 -100.85,50.46 -100.85,100.85 0,75.67 
                 50.4,100.92 100.85,100.92l-0.01 0.01zm1489.55 1390.27c-126.06,0 -201.73,75.67 -201.73,201.73 0,100.94 
                 75.67,201.79 201.73,201.79 100.92,0 176.58,-100.85 176.58,-201.79 0,-126.06 -75.67,-201.73 -176.58,-201.73z"/>
-                <circle id="circleCart" fill="rgb(255, 242, 18)" cx="1350.21" cy="1350.3" r="650"/>
-                <text id="countCart" fill="rgb(62, 64, 149)" x="1300" y="1500" textAnchor="middle" alignmentBaseline="middle" fontSize="1150">10</text>
+                {totalCart > 0 ? (
+                    <>
+                    <circle id="circleCart" fill="rgb(255, 242, 18)" cx="1350.21" cy="1350.3" r="650"/>
+                    <text id="countCart" fill="rgb(62, 64, 149)" x="1300" y="1500" textAnchor="middle" alignmentBaseline="middle" 
+                    fontSize="1150">{totalCart}</text>
+                    </>
+                ) : null}
             </svg>
     )
 }

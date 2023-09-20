@@ -4,7 +4,8 @@ import { useParams } from 'react-router-dom'
 import ItemSearch from '../ItemSearch'
 import { ArticlesContext } from '../../context/ArticlesContext'
 import { useContext } from 'react'
-import AddCart  from '../AddCart' 
+// import AddCart  from '../AddCart' 
+import ButtonAddCart from '../ButtonAddCart'
 
 
 const Item = ({item, index}) => {
@@ -14,6 +15,7 @@ const Item = ({item, index}) => {
     // useEffect(() => {
     //     setDetail(ItemSearch(id, articles))
     // }, [id])
+    // console.log(item)
     return (
         <figure key={index}>
             <img src={item.image} alt="" />
@@ -21,8 +23,9 @@ const Item = ({item, index}) => {
                 {item.title}
             </figcaption>
             <p>Precio: ${item.price}</p>
-            {/* <Link to={`/detail/${item.id}`}><p>ver mas...</p></Link> */}
-            <AddCart item={item}/>
+            <Link to={`/detail/${item.id}`}><p>ver mas...</p></Link>
+            {/* <AddCart item={item}/> */}
+            <ButtonAddCart item={item} amount={1} />
         </figure>
     )
 }

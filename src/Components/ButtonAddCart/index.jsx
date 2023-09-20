@@ -5,15 +5,38 @@ import ItemSearch from '../ItemSearch'
 import { useContext } from 'react'
 
 
-const ButtonAddCart = ({item}) => {
-    // count=false
+const ButtonAddCart = ({item, amount}) => {
+    // amount = isNaN(amount) ? 1 : amount
+    const [controlStock, setControlStock] = useState(true)
     const {cart, setCart} = useContext(ArticlesContext)
-     console.log(item)
+    const {totalCart, setTotalCart} = useContext(ArticlesContext)
+
+    //  console.log(item)
+    useEffect(() => {
+       if (amount > item.stock) {
+        setControlStock(false)
+       }
+       else {
+        setControlStock(true)
+       }
+       let aux = cart.findIndex((el) => el.id === item.id)
+       if (aux !== -1) {
+        if( cart[aux].amount >= item.stock) {
+            setControlStock(false)
+        }
+        // setCart([...cart, newItem])// cart[aux].amount = count || 1
+    }
+    }, [amount])
     const addCart = () => {
         let aux = cart.findIndex((el) => el.id === item.id)
-        console.log(aux)
+        // console.log(aux)
         if (aux !== -1) {
-            cart[aux].amount++
+            cart[aux].amount = cart[aux].amount + amount
+            setTotalCart(totalCart + amount)
+            if( cart[aux].amount > item.stock) {
+                setControlStock(false)
+                cart[aux].amount = cart[aux].amount - amount
+            }
             // setCart([...cart, newItem])// cart[aux].amount = count || 1
         }
         else {
@@ -22,16 +45,30 @@ const ButtonAddCart = ({item}) => {
                 title: item.title,
                 price: item.price,
                 id: item.id,
-                amount: 1
+                amount: amount,
+                image: item.image
             }
-            console.log(newItem)
-            setCart([...cart, newItem])
+            setTotalCart(totalCart + newItem.amount)
+            if( newItem.amount > item.stock) {
+                setControlStock(false)
+            }
+            else {
+                setCart([...cart, newItem])
+            }
+            // console.log(newItem)
         }
         console.log(cart)
+        console.log(controlStock)
+        // if (cart.length > 0) {
+        //     cart.map((el) => {
+        //         contextInfo.setTotalCart(contextInfo.totalCart + el.amount)
+        //     })
+        // }
+        console.log(totalCart)
     }
     return (
-        item.stock > 0 ? <button className={styles['figure__button']} type='button' onClick={addCart}>añadir al carrito</button> : 
-        <button className={styles['figure__button__empty']} type='button'>no existe stock</button>
+        item.stock > 0 && controlStock ? <button className={styles['figure__button']} type='button' onClick={addCart}>añadir al carrito</button> : 
+        <button className={styles['figure__button__empty']} type='button'>artículo agotado</button>
     )
 }
 export default ButtonAddCart

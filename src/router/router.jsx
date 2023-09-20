@@ -3,6 +3,7 @@ import NavBar from "../Components/NavBar"
 import ItemListContainer from "../Components/ItemListContainer"
 import ItemDetailContainer from '../Components/ItemDetailConteiner';
 import Item from '../Components/Item'
+import CartProvider from '../Components/CartProvider'
 import {
   BrowserRouter,
   Routes,
@@ -20,7 +21,8 @@ const Router = () => {
         <Routes>
           <Route path="/" element={<ItemListContainer />} />
           <Route path="/category/:categoryId" element={<ItemListContainer />} />
-          <Route path="/detail/:id" element={<Item />} />
+          <Route path="/detail/:id" element={<ItemDetailContainer />} />
+          <Route path="/cart" element={<CartProvider />} />
         </Routes>
       </BrowserRouter>
     </ArticlesComponentContext>  

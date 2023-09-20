@@ -130,9 +130,9 @@ const NavBar = () => {
                         </a>
                     </li>
                     <li className="cart">
-                        <a href="#" className="cartAccess" rel="nofollow" title="Carrito de compras">
-                            <CartWidget />
-                        </a>
+                        <div href="#" className="cartAccess" rel="nofollow" title="Carrito de compras">
+                            <Link to='/cart' ><CartWidget /></Link>
+                        </div>
                     </li>
                 </ul>
             </div>

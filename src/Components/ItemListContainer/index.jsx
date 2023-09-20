@@ -22,7 +22,7 @@ const ItemListContainer = () => {
         try {
             const data = await getDocs(productRef)
             const dataFiltrada = data.docs.map((doc) => ({...doc.data(), id: doc.id}))
-            console.log(dataFiltrada + "dentro del getArticles")
+            // console.log(dataFiltrada)
             return dataFiltrada
         } catch (error) {
             setError(true)
@@ -40,7 +40,7 @@ const ItemListContainer = () => {
         useEffect(() => {
             setArticlesFilter(ItemFilter(articles, categoryId))
         }, [categoryId, articles])
-        console.log(articlesFilter)
+        // console.log(articlesFilter)
         // if (articlesFilter.length > 0) {
             
             //     return articlesFilter
@@ -53,7 +53,7 @@ const ItemListContainer = () => {
     // if (info === true) {
     //     return <Error />
     // }
-    console.log("llega hasta acá")
+    // console.log("llega hasta acá")
     return (
         <ItemList articlesFilter={articlesFilter} />
         // <div  className={styles["list"]}>
