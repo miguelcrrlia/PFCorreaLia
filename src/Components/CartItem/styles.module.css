@@ -1,0 +1,22 @@
+td {
+  border: 1px solid;
+  padding: 10px;
+}
+.fontWeigth {
+  font-weight: bold;
+}
+
+.delete-container {
+  width: 100%;
+  display: flex; 
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-around;
+  padding: 6px;
+
+
+}
+.delete-container input {
+  padding: 6px;
+}

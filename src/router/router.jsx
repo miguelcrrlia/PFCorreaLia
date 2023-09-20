@@ -4,6 +4,7 @@ import ItemListContainer from "../Components/ItemListContainer"
 import ItemDetailContainer from '../Components/ItemDetailConteiner';
 import Item from '../Components/Item'
 import CartProvider from '../Components/CartProvider'
+import CartItem from '../Components/CartItem';
 import {
   BrowserRouter,
   Routes,

@@ -46,7 +46,8 @@ const ButtonAddCart = ({item, amount}) => {
                 price: item.price,
                 id: item.id,
                 amount: amount,
-                image: item.image
+                image: item.image,
+                description: item.description
             }
             setTotalCart(totalCart + newItem.amount)
             if( newItem.amount > item.stock) {
