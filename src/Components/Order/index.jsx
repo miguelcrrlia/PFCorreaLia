@@ -2,7 +2,7 @@ import { useState, useRef, useContext } from 'react'
 import styles from './styles.module.css'
 import { ArticlesContext } from '../../context/ArticlesContext'
 import OrderItem from '../OrderItem'
-import { collection, getDocs, getDoc, doc, addDoc, updateDoc, getFirestore } from 'firebase/firestore'
+import { collection, getDocs, getDoc, doc, addDoc, updateDoc, getFirestore, FieldValue } from 'firebase/firestore'
 import { db } from '../../firebase/client'
 import Error from '../Error'
 import PurchaseCompleted from '../PurchaseCompleted'
@@ -16,6 +16,7 @@ const Order = () => {
     //Creo este useState para controlar si se tocó el botón de confirmar compra
     //por si se actualiza la página
     const [controlSubmit, setcontrolSubmit] = useState(false)
+    const [finishOrder, setFinishOrder] = useState(false)
     const [formData, setFormData] = useState({
         name: "",
         surname: "",
@@ -25,6 +26,7 @@ const Order = () => {
         comment: ""
     })
     const sendOrder = () => {
+        //Me quedo con la información relevante del cart 
         const resumeCart = cart.map(item => ({
             id: item.id,
             title: item.title,
@@ -56,22 +58,39 @@ const Order = () => {
         const info = type === 'checkbox' ? checked : value
         setFormData({...formData, [name]: info})
     }
-    const submitFunction = (e) => {
+    const submitFunction = async (e) => {
         e.preventDefault()
         console.log(formData)
+        //Pongo esta condición para que no envie una orden en caso que se actualice la página estando el formulario,
+        //sino enviaría una orden con la propiedad items vacía.
         if (cart.length > 0) {
             setcontrolSubmit(true)
             sendOrder()
+            await Promise.all(cart.map(async (item) => {
+                await updateStock(item.id, item.amount)
+            }))
         }
+        //Para que cuando se entregue el formulario se reinicie aprovechando el mismo botón de limpiar el formulario.
         if (buttonReset.current) {
             buttonReset.current.click();
         }
-        
-        
+        setFinishOrder(true)
     }
+    const updateStock = async (id, amount) => {
+        try {const db = getFirestore()
+            const stockUpdate = doc(db, "articles", id)
+            const takeStock = await getDoc(stockUpdate)
+            const actualStock = takeStock.data().stock
+            const newStock = actualStock - amount
+            await updateDoc(stockUpdate, {stock: newStock})
+        } catch (error) {
+            console.error("Error al actualizar el stock:", error)
+            return <Error />
+        }
+    } 
     return (
         <div>
-            {controlSubmit ? (orderId !== "" ? (<PurchaseCompleted id={orderId} />) : (<LoadingMessage />)) :
+            {controlSubmit ? (finishOrder ? (<PurchaseCompleted id={orderId} />) : (<LoadingMessage />)) :
             (
         <form  onSubmit={submitFunction} className={styles["contacto__form"]} action="#">
             <fieldset>
