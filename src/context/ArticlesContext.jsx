@@ -5,9 +5,9 @@ export const ArticlesComponentContext = ({children}) => {
     const [articles, setArticles] = useState([])
     const [cart, setCart] = useState([])
     const [totalCart, setTotalCart] = useState(0)
-    const [user, setUser] = useState()
+    const [totalPrice, setTotalPrice] = useState(0)
 
-    return <ArticlesContext.Provider value = { {articles, setArticles, cart, setCart, totalCart, setTotalCart}}>
+    return <ArticlesContext.Provider value = { {articles, setArticles, cart, setCart, totalCart, setTotalCart, totalPrice, setTotalPrice}}>
         {children}
     </ArticlesContext.Provider>
 }

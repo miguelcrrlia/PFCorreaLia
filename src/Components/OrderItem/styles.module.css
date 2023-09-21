@@ -1,0 +1,11 @@
+.img__format {
+    height: 3rem;
+    width: auto;
+    margin-right: 2rem;
+}
+.li__format {
+    display: flex;
+    justify-content: start;
+    padding: 10px;
+    align-items: center;
+}

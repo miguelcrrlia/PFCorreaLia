@@ -13,7 +13,7 @@ import {
 } from "react-router-dom"; 
 // import { CartComponentContext } from '../context/CartContext';
 import { ArticlesComponentContext } from '../context/ArticlesContext';
-
+import Order from '../Components/Order';
 const Router = () => {
     return (
     <ArticlesComponentContext>
@@ -24,6 +24,7 @@ const Router = () => {
           <Route path="/category/:categoryId" element={<ItemListContainer />} />
           <Route path="/detail/:id" element={<ItemDetailContainer />} />
           <Route path="/cart" element={<CartProvider />} />
+          <Route path='/order' element={<Order />} />
         </Routes>
       </BrowserRouter>
     </ArticlesComponentContext>  

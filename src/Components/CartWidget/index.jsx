@@ -24,7 +24,7 @@ const CartWidget = () => {
                 {totalCart > 0 ? (
                     <>
                     <circle id="circleCart" fill="rgb(255, 242, 18)" cx="1350.21" cy="1350.3" r="650"/>
-                    <text id="countCart" fill="rgb(62, 64, 149)" x="1300" y="1500" textAnchor="middle" alignmentBaseline="middle" 
+                    <text id="countCart" fill="rgb(62, 64, 149)" x="1300" y="1600" textAnchor="middle" alignmentBaseline="middle" 
                     fontSize="1150">{totalCart}</text>
                     </>
                 ) : null}

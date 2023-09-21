@@ -5,8 +5,11 @@ import CartView from '../CartView'
 
 const CartProvider = () => {
     const {cart, setCart} = useContext(ArticlesContext)
+    const cleanCart = () => {
+        setCart([])
+    }
     return (
-        cart.length > 0 ? <CartView itemsCart={cart} /> : <h3>El carrito está vacio.</h3>
+        cart.length > 0 ? <CartView itemsCart={cart} cleanCart={cleanCart} /> : <h3>El carrito está vacio.</h3>
     )
 
 }

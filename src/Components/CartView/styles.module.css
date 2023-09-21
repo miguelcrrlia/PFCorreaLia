@@ -2,10 +2,14 @@
   position: sticky;
   top: 0;
 }
-table {
-  margin: 25px;
-  color: rgb(62, 64, 149);
+.div__cart {
   width: 33%;
+}
+table {
+  margin-left: 25px;
+  margin-top: 25px;
+  color: rgb(62, 64, 149);
+  width: auto;
   border: 3px solid rgb(62, 64, 149);
   border-collapse: collapse;
   font-weight: 200;
@@ -29,7 +33,7 @@ td {
 }
 
 .delete-container {
-  width: 100%;
+  width: auto;
   display: flex; 
   flex-direction: row;
   flex-wrap: nowrap;
@@ -40,21 +44,46 @@ td {
 
 }
 .delete-container input {
-  padding: 6px;
+  padding: 4px;
 }
-/* input {
-  width: 100%;
-  z-index: 34;
-} */
-/* .delete {
-  width: auto;
-} */
 .delete-container img {
   width: 60%;
 }
-/* img {
-  display: inline;
+.buttonsCart--format {
+  margin-top: 5px;
+  display: flex;
+  justify-content: end;
 }
-div {
-  display: inline;
-} */
+.button--format {
+  margin-left: 5px;
+  margin-bottom: 10px;
+  border: 0;
+  padding: 1px 5px;
+  background-color: rgb(62, 64, 149);
+  color: rgb(247, 247, 247);
+}
+.button--format:hover {
+  color: rgb(255, 242, 18);
+}
+.button--format:active {
+  animation-name: achicar;
+  animation-duration: 0.2s;
+  animation-timing-function: linear;
+}
+@keyframes achicar {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(0.95);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  75% {
+    transform: scale(0.85);
+  }
+  100% {
+    transform: scale(0.8);
+  }
+}

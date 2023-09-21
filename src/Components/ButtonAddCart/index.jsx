@@ -32,10 +32,12 @@ const ButtonAddCart = ({item, amount}) => {
         // console.log(aux)
         if (aux !== -1) {
             cart[aux].amount = cart[aux].amount + amount
-            setTotalCart(totalCart + amount)
             if( cart[aux].amount > item.stock) {
                 setControlStock(false)
                 cart[aux].amount = cart[aux].amount - amount
+            }
+            else {
+                setTotalCart(totalCart + amount)
             }
             // setCart([...cart, newItem])// cart[aux].amount = count || 1
         }
