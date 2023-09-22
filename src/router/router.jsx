@@ -14,6 +14,8 @@ import {
 // import { CartComponentContext } from '../context/CartContext';
 import { ArticlesComponentContext } from '../context/ArticlesContext';
 import Order from '../Components/Order';
+import EventEmitter from '../emitter';
+const emitter = new EventEmitter()
 const Router = () => {
     return (
     <ArticlesComponentContext>
@@ -30,5 +32,5 @@ const Router = () => {
     </ArticlesComponentContext>  
     )
 }
-
+export { emitter }
 export default Router

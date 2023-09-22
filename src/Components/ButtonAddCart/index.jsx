@@ -19,9 +19,10 @@ const ButtonAddCart = ({item, amount}) => {
        else {
         setControlStock(true)
        }
+       //Reviso el stock del item que existe en el carrito
        let aux = cart.findIndex((el) => el.id === item.id)
        if (aux !== -1) {
-        if( cart[aux].amount >= item.stock) {
+        if( cart[aux].amount + amount > item.stock) {
             setControlStock(false)
         }
         // setCart([...cart, newItem])// cart[aux].amount = count || 1
