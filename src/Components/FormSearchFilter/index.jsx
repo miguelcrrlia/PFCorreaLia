@@ -26,6 +26,22 @@ const FormSearchFilter = () => {
         // console.log(evt.target.value)
         emitter.emit("selectChangeFilter", {value: evt.target.value})
     }
+    const emitterSearch = (evt) => {
+        // const EventEmitter = require('../../emitter')
+        // const selectValue = evt.target.value
+        // console.log(evt.target.value)
+        // console.log(evt.KeyCode)
+        // console.log(evt.which)
+        console.log(evt)
+        const infoInput = {
+            value: evt.target.value,
+            which: evt.which || evt.keyCode,
+            key: evt.key,
+            keyCode: evt.keyCode
+        }
+        console.log(infoInput)
+        emitter.emit("search", infoInput)
+    }
     return ( 
         <form key="form" id="form_search" className={styles["tienda__buscar--flex"]} action="">
             <span className={styles["text--format"]}>Categorías: </span><div key="di">
@@ -42,7 +58,7 @@ const FormSearchFilter = () => {
                 </select>
             </label>
             <div>
-                <input key="inpu1" id="input_search" className={styles["buscar__input"]} name="buscar" type="text" placeholder="Buscar" />
+                <input key="inpu1" id="input_search" onKeyDown={emitterSearch} className={styles["buscar__input"]} name="buscar" type="text" placeholder="Buscar" />
                 <input key="inpu2" id="input_button_search" className={styles["buscar__button"]} type="button" title="buscar" value="buscar" />
             </div>
         </form>

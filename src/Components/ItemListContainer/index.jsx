@@ -12,6 +12,7 @@ import  ItemList  from '../ItemList'
 import EventEmitter from '../../emitter'
 import { emitter } from '../../router/router'
 import ItemFilterOption from '../ItemFilterOption'
+import ItemSearchOption from '../ItemSearchOption'
 const ItemListContainer = () => {
     const { categoryId } = useParams()
     const {articles, setArticles} = useContext(ArticlesContext)
@@ -19,6 +20,7 @@ const ItemListContainer = () => {
     const [error, setError] = useState(false)
     const productRef = collection(db, "articles")
     const [filterOption, setFilterOption] = useState("")
+    const [searchInput, setSearchInput] = useState({ value: '', which: null, key: '', keyCode: null })
     const getArticles = async () => {
         try {
             const data = await getDocs(productRef)
@@ -48,10 +50,23 @@ const ItemListContainer = () => {
             
             return () => {emitter.off("selectChangeFilter", listener)}
         }, [])
+        useEffect(() => {
+            const listen = (infoInput) => {
+                setSearchInput(infoInput)
+                console.log(infoInput)
+            }
+            emitter.on("search", listen)
+            return () => {emitter.off("search", listen)}
+
+        }, [])
         // const emitter = new EventEmitter()
         useEffect(() => {
             setArticlesFilter(ItemFilterOption(articles, filterOption))
         }, [filterOption])
+        useEffect(() => {
+            console.log(searchInput)
+            setArticlesFilter(ItemSearchOption(articles, searchInput))
+        }, [searchInput])
     if (error) {
         return <Error />
     }
