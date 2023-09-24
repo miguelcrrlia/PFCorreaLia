@@ -5,14 +5,12 @@ td {
 .fontWeigth {
   font-weight: bold;
 }
-
 .delete-container {
   display: flex; 
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
   justify-content: space-around;
-  /* padding: 6px; */
 }
 img {
   padding: 0;

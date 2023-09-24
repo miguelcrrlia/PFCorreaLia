@@ -10,14 +10,14 @@ import {
   Routes,
   Route,
   Link,
-} from "react-router-dom"; 
+} from "react-router-dom";
 // import { CartComponentContext } from '../context/CartContext';
 import { ArticlesComponentContext } from '../context/ArticlesContext';
 import Order from '../Components/Order';
-import EventEmitter from '../emitter';
-const emitter = new EventEmitter()
+// import EventEmitter from '../emitter';
+// const emitter = new EventEmitter()
 const Router = () => {
-    return (
+  return (
     <ArticlesComponentContext>
       <BrowserRouter>
         <NavBar />
@@ -29,8 +29,8 @@ const Router = () => {
           <Route path='/order' element={<Order />} />
         </Routes>
       </BrowserRouter>
-    </ArticlesComponentContext>  
-    )
+    </ArticlesComponentContext>
+  )
 }
-export { emitter }
+// export { emitter }
 export default Router

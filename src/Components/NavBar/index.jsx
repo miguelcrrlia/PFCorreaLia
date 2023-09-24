@@ -16,13 +16,13 @@ const NavBar = () => {
                 {/* </a> */}
             </div>
             {/* Lista de links para redes y carrito */}
-            <div className= {styles["navegador__links"]}>
+            <div className={styles["navegador__links"]}>
                 <ul>
                     <li>
                         <a href="https://www.facebook.com/" title="Facebook" target="_blank" rel="noreferrer">
                             <svg aria-labelledby="title-facebook-nav" width="19.753mm" height="19.7698mm" viewBox="0 0 1219.61 1220.65">
                                 <title id="title-facebook-nav">ícono de Facebook</title>
-                                <path  d="M1219.61 625.98c0,-343.75 -265.58,-625.98 -609.32,-625.98 
+                                <path d="M1219.61 625.98c0,-343.75 -265.58,-625.98 -609.32,-625.98 
                                 -329.06,0 -610.29,282.23 -610.29,625.98 0,281.23 218.74,532.15 484.33,594.67l0 
                                 -422.84 -109.35 0 0 -171.83 109.35 0c0,-161.87 -14.5,-374.97 219.7,-374.97l156.27 0 0 187.48 
                                 -125.01 0c-31.26,0 -62.48,31.22 -62.48,62.48l0 125.01 187.48 0 0 171.83 -187.48 0 0 422.84c312.45,
@@ -33,12 +33,12 @@ const NavBar = () => {
                     <li>
                         <a href="https://www.instagram.com/" title="Instagram" target="_blank" rel="noreferrer">
                             <svg aria-labelledby="title-instagram-nav" width="19.753mm" height="19.753mm" version="1.1" style={{
-                                    shapeRendering: 'geometricPrecision',
-                                    textRendering: 'geometricPrecision',
-                                    imageRendering: 'optimizeQuality',
-                                    fillRule: 'evenodd',
-                                    clipRule: 'evenodd',
-                                }} viewBox="0 0 1961.14 1961.14">
+                                shapeRendering: 'geometricPrecision',
+                                textRendering: 'geometricPrecision',
+                                imageRendering: 'optimizeQuality',
+                                fillRule: 'evenodd',
+                                clipRule: 'evenodd',
+                            }} viewBox="0 0 1961.14 1961.14">
                                 <title id="title-instagram-nav">ícono de Instagram</title>
                                 <path d="M1961.14 980.57c0,-541.55 -439.02,-980.57 -980.57,-980.57 -541.55,0 -980.57,439.02 
                                 -980.57,980.57 0,541.55 439.02,980.57 980.57,980.57 541.55,0 980.57,-439.02 980.57,
@@ -64,7 +64,7 @@ const NavBar = () => {
                                 fillRule: 'evenodd',
                                 clipRule: 'evenodd',
                             }}
-                            viewBox="0 0 1975.34 1975.34">
+                                viewBox="0 0 1975.34 1975.34">
                                 <title id="title-whatsapp-nav">ícono de Whatsapp</title>
                                 <path d="M1975.34 987.67c0,-545.48 -442.19,-987.67 -987.67,-987.67 -545.48,0 -987.67,442.19 
                                 -987.67,987.67 0,545.48 442.19,987.67 987.67,987.67 545.48,0 987.67,-442.19 987.67,-987.67zm-1363.05 429.23l177.79 -56.89c74.56,49.09 
@@ -89,11 +89,11 @@ const NavBar = () => {
                                 fillRule: 'evenodd',
                                 clipRule: 'evenodd',
                             }}
-                            viewBox="0 0 1975.3 1975.31">
+                                viewBox="0 0 1975.3 1975.31">
                                 <title id="title-chess.com-nav">ícono de chess.com</title>
                                 <rect style={{
-                                fill: 'none',
-                                }}  y="0.01" width="1975.3" height="1973.84"/>
+                                    fill: 'none',
+                                }} y="0.01" width="1975.3" height="1973.84" />
                                 <path d="M808.62 862.13l0 71.51c55.16,4 135.98,23.06 180.67,44.34 
                                 25.8,12.29 49.03,29.8 62.06,50.63 19.02,30.41 13.83,57.38 7.24,93.17 -13.43,72.91 -72.85,406.12 
                                 -97.02,462.64 -36.92,86.33 -118.12,116.1 -215.52,121.09 -92.43,4.73 -219.47,0.02 -309.25,-24.81 
@@ -137,7 +137,7 @@ const NavBar = () => {
                 </ul>
             </div>
             <div className={styles["centrado"]}>
-            <div className={styles["navegador__menu"]}>
+                <div className={styles["navegador__menu"]}>
                     <div className={styles["navegador__lista--row"]}>
                         {/* Lista para navegar dentro del sitio */}
                         <ul className={styles["navegador__lista"]}>
@@ -155,8 +155,8 @@ const NavBar = () => {
                             </li>
                         </ul>
                     </div>
-            </div>
-            <FormSearchFilter />
+                </div>
+                <FormSearchFilter />
             </div>
         </nav>
     )

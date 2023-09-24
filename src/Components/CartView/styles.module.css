@@ -23,7 +23,6 @@ th {
   background-color: rgb(245, 245, 255);
   background-clip: padding-box;
 }
-
 td {
   border: 1px solid;
   padding: 10px;
@@ -31,7 +30,6 @@ td {
 .fontWeigth {
   font-weight: bold;
 }
-
 .delete-container {
   width: auto;
   display: flex; 
@@ -40,8 +38,6 @@ td {
   align-items: center;
   justify-content: space-around;
   padding: 6px;
-
-
 }
 .delete-container input {
   padding: 4px;

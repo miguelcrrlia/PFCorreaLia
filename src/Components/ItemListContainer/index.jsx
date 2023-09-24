@@ -1,26 +1,23 @@
-import LoadingMessage from '../LoadingMessage'
-import Error from '../Error'
-import { useParams } from 'react-router-dom'
-import styles from './styles.module.css'
-import { Link } from 'react-router-dom'
 import { useContext, useEffect, useState } from 'react'
-import ItemFilter from '../ItemFilter'
+import { useParams } from 'react-router-dom'
+import { collection, getDocs, query, where, limit, getDoc, doc } from 'firebase/firestore'
 import { db } from '../../firebase/client'
-import { getDocs, collection, query, where, limit, getDoc, doc } from 'firebase/firestore'
 import { ArticlesContext } from '../../context/ArticlesContext'
 import  ItemList  from '../ItemList'
-import EventEmitter from '../../emitter'
-import { emitter } from '../../router/router'
+import ItemFilter from '../ItemFilter'
 import ItemFilterOption from '../ItemFilterOption'
 import ItemSearchOption from '../ItemSearchOption'
+import Error from '../Error'
+
 const ItemListContainer = () => {
     const { categoryId } = useParams()
     const {articles, setArticles} = useContext(ArticlesContext)
     const [articlesFilter, setArticlesFilter] = useState([])
     const [error, setError] = useState(false)
+    const [searchVerf, setSearchVerf] = useState(true)
+    const {filterOption, setFilterOption} = useContext(ArticlesContext)
+    const {searchInputInfo, setSearchInputInfo} = useContext(ArticlesContext)
     const productRef = collection(db, "articles")
-    const [filterOption, setFilterOption] = useState("")
-    const [searchInput, setSearchInput] = useState({ value: '', which: null, key: '', keyCode: null })
     const getArticles = async () => {
         try {
             const data = await getDocs(productRef)
@@ -30,48 +27,35 @@ const ItemListContainer = () => {
             setError(true)
             console.error("Error", error)
         }
-     }
+    }
     useEffect(() => {
         const auxFunction = async () => {
             const data = await getArticles()
             setArticles(data)
         }
         auxFunction()
-        }, [])
+    }, [])
+    
+    useEffect(() => {
+        const datInf = ItemFilter(articles, categoryId)
+        setArticlesFilter(datInf)
+    }, [categoryId, articles])
         useEffect(() => {
-            setArticlesFilter(ItemFilter(articles, categoryId))
-        }, [categoryId, articles])
-        useEffect(() => {
-            const listener = ({value}) => {
-                setFilterOption(value)
-                console.log(value)
-            }
-            emitter.on("selectChangeFilter", listener)
-            
-            return () => {emitter.off("selectChangeFilter", listener)}
-        }, [])
-        useEffect(() => {
-            const listen = (infoInput) => {
-                setSearchInput(infoInput)
-                console.log(infoInput)
-            }
-            emitter.on("search", listen)
-            return () => {emitter.off("search", listen)}
-
-        }, [])
-        // const emitter = new EventEmitter()
-        useEffect(() => {
-            setArticlesFilter(ItemFilterOption(articles, filterOption))
+            const dat = ItemFilterOption(articles, filterOption)
+            setArticlesFilter(dat)
         }, [filterOption])
         useEffect(() => {
-            console.log(searchInput)
-            setArticlesFilter(ItemSearchOption(articles, searchInput))
-        }, [searchInput])
-    if (error) {
-        return <Error />
-    }
-    return (
-        <ItemList articlesFilter={articlesFilter} />
+            if (searchInputInfo.which === 13 || searchInputInfo.keyCode === 13 || searchInputInfo.key === "enter" && searchInputInfo.value !== "") {
+                const datafilter = ItemSearchOption(articles, searchInputInfo)
+                setArticlesFilter(datafilter)
+                articlesFilter.length > 0 ? setSearchVerf(false) : setSearchVerf(true)
+            }
+        }, [searchInputInfo])
+        if (error) {
+            return <Error />
+        }
+        return (
+            <ItemList articlesFilter={articlesFilter} searchVerf={searchVerf} />
     )
 }
 export default ItemListContainer

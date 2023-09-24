@@ -1,6 +1,7 @@
 .contacto__form {
     width: 60%;
     color: rgb(62, 64, 149);
+    margin-bottom: 15px;
   }
   .input--format {
     border: 1.5px solid rgb(62, 64, 149);

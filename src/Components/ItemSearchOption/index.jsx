@@ -1,16 +1,17 @@
-const ItemSearchOption = (articles, input) => {
-    let newArticles = [...articles]
-    let articlesAux = [...articles]
-    console.log(input)
-    if (input) {
 
-        if (input.which === 13 || input.keyCode === 13 || input.key === "enter") {
-            // input.preventDefault()
-            console.log("entro")
-            newArticles =  articlesAux.filter(producto => producto.title.toLowerCase().includes(input.value.toLowerCase()))
-            console.log(newArticles)
-          }
+const ItemSearchOption = (articles, input) => {
+    let newArticles = []
+    let articlesAux = [...articles]
+    if (input) {
+        if (input.which === 13 || input.keyCode === 13 || input.key === "enter" && input.value !== "") {
+            newArticles = articlesAux.filter(producto => producto.title.toLowerCase().includes(input.value.toLowerCase()))
+        }
     }
-          return newArticles
+    if ((input.which === 13 || input.keyCode === 13 || input.key === "enter") && input.value !== "") {
+        return newArticles
+    }
+    else {
+        return articles
+    }
 }
 export default ItemSearchOption

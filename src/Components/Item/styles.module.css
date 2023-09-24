@@ -40,7 +40,6 @@ figure {
   justify-content: space-around;
   align-items: center;
   border: dotted 1px rgb(62, 64, 149);
-  /* padding: 5%; */
   background-color: rgb(255, 255, 245);
 }
 figure a {
