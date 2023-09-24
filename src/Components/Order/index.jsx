@@ -71,7 +71,7 @@ const Order = () => {
         }
         //Para que cuando se entregue el formulario se reinicie aprovechando el mismo botón de limpiar el formulario.
         if (buttonReset.current) {
-            buttonReset.current.click();
+            buttonReset.current.click()
         }
         setFinishOrder(true)
     }

@@ -1,7 +1,6 @@
 const ItemFilterOption = (articles, option, input) => {
     let articlesAux = [...articles]
     let newArticles = []
-    console.log(option)
     const higgerOption = () => {
         //Más práctico es => newArticles.sort((a, b) => b.price - a.price)
         let auxIndex

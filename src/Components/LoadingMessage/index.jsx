@@ -24,4 +24,4 @@ const LoadingMessage = () => {
   }, [])
   return <h3>{message}</h3>
 }
-export default LoadingMessage;
+export default LoadingMessage
